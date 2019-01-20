@@ -1,1 +1,130 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+// .example-card {
+//     max-width: 180px;
+// }
+// .example-header-image {
+//     background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+//     background-size: cover;
+// }
+.content {
+  max-width: 100%;
+  padding: 25px;
+}
+.mat-expansion-panel:not([class*=mat-elevation-z]){
+    background-color: #3f51b5;
+    .mat-expansion-panel-header-title,
+    .mat-expansion-panel-header-description{
+        color: #fff;
+    }
+}
+.mat-card:not([class*=mat-elevation-z]){
+    background-color: #279;
+    .mat-card-title{
+        color: #fff;
+    }
+}
+.form-area{
+    background-color: #fff;
+    z-index: 1001;
+    width: 100%;
+    display: flex;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    justify-content: center;
+    transition: 0.7s ease-in;
+    align-items: center;
+    &.hide{
+        transform: translateY(-100%);
+    }
+    .content-form{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 420px;
+        .mat-card-title{
+            text-align: center;
+        }
+        input{
+            width: 100%;
+        }
+    }
+}
+.mat-card-title{
+    margin-top: 10px!important;
+}
+mat-card{
+  width: 130px;
+  overflow: hidden;
+  display: flex;
+  text-align: center;
+  margin: 5px;
+  .img{
+    height: 110px;
+    background-position: center;
+    background-size: cover;
+    width: calc(100% + 32px);
+    margin-left: -16px;
+    margin-top: -16px!important;
+    overflow: hidden;
+  }
+}
+.selected-area{
+  .mat-expansion-indicator{
+      display: none!important;
+  }
+}
+.list {
+  max-width: 100%;
+  border: solid 1px #ccc;
+  min-height: 170px;
+  display: flex;
+  flex-direction: row;
+  background: white;
+  border-radius: 4px;
+  overflow: auto;
+}
+
+.box {
+  padding: 20px 10px;
+  border-right: solid 1px #ccc;
+  color: rgba(0, 0, 0, 0.87);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  cursor: move;
+  background: white;
+  font-size: 14px;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+.cdk-drag-preview {
+  .box{
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+                0 8px 10px 1px rgba(0, 0, 0, 0.14),
+                0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  }
+}
+
+.cdk-drag-placeholder {
+  opacity: 0;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.box:last-child {
+  border: none;
+}
+
+.list.cdk-drop-list-dragging .box:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}

@@ -1,0 +1,111 @@
+<div class="form-area" [class.hide]="content">
+    <form class="content-form" method="POST" (ngSubmit)="onSubmit()">
+        <mat-card-title>Title some text</mat-card-title>
+        <mat-form-field>
+            <input matInput placeholder="Name" name="name" [(ngModel)]="message.name" required>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Name2" name="name2" [(ngModel)]="message.name2">
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit">Next</button>
+    </form>
+</div>
+<div class="width cards-area-selected">
+    <div class="content">
+        <mat-card-title>Select tag and card</mat-card-title>
+        <mat-accordion>
+            <mat-expansion-panel [expanded]="true" (opened)="true">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Tag 1
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Lorem Ipsum is simply dummy text 
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div
+                    cdkDropList
+                    cdkDropListOrientation="horizontal"
+                    #tag1List="cdkDropList"
+                    [cdkDropListData]="tag1"
+                    [cdkDropListConnectedTo]="[selectedList]"
+                    class="list"
+                    (cdkDropListDropped)="drop($event)">
+                    <app-card *ngFor="let item of tag1" cdkDrag [item]="item"></app-card>
+                </div>
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Tag 2
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Lorem Ipsum is simply dummy text 
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div
+                    cdkDropList
+                    cdkDropListOrientation="horizontal"
+                    #tag2List="cdkDropList"
+                    [cdkDropListData]="tag2"
+                    [cdkDropListConnectedTo]="[selectedList]"
+                    class="list"
+                    (cdkDropListDropped)="drop($event)">
+                    <app-card *ngFor="let item of tag2" cdkDrag [item]="item"></app-card>
+                </div>
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Tag 3
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Lorem Ipsum is simply dummy text 
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div
+                    cdkDropList
+                    cdkDropListOrientation="horizontal"
+                    #tag3List="cdkDropList"
+                    [cdkDropListData]="tag3"
+                    [cdkDropListConnectedTo]="[selectedList]"
+                    class="list"
+                    (cdkDropListDropped)="drop($event)">
+                    <app-card *ngFor="let item of tag3" cdkDrag [item]="item"></app-card>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+    <hr>
+    <div class="content selected-area">
+        <mat-card-title>Selected Card</mat-card-title>
+        <mat-accordion class="example-headers-align">
+            <mat-expansion-panel [expanded]="true" (opened)="true">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Drop here card
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Select card and drop this area card
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div
+                    cdkDropList
+                    #selectedList="cdkDropList"
+                    cdkDropListOrientation="horizontal"
+                    [cdkDropListData]="selected"
+                    [cdkDropListConnectedTo]="[tag1List,tag2List,tag3List]"
+                    class="list"
+                    (cdkDropListDropped)="drop($event)">
+                    <app-card *ngFor="let item of selected" cdkDrag [item]="item"></app-card>
+                </div>
+                <mat-action-row *ngIf="selected.length > 2 && selected.length < 11">
+                    <button mat-raised-button color="accent" (click)="formatedPDF()">Get PDF file cards</button>
+                </mat-action-row>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+</div>
+<div class="content">
+    
+</div>
