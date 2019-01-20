@@ -13,7 +13,7 @@
 <div class="width cards-area-selected">
     <div class="content">
         <mat-card-title>Select tag and card</mat-card-title>
-        <mat-accordion>
+        <mat-accordion multi="true">
             <mat-expansion-panel [expanded]="true" (opened)="true">
                 <mat-expansion-panel-header>
                     <mat-panel-title>
@@ -34,7 +34,7 @@
                     <app-card *ngFor="let item of tag1" cdkDrag [item]="item"></app-card>
                 </div>
             </mat-expansion-panel>
-            <mat-expansion-panel>
+            <mat-expansion-panel  [expanded]="true" (opened)="true">
                 <mat-expansion-panel-header>
                     <mat-panel-title>
                         Tag 2
@@ -54,7 +54,7 @@
                     <app-card *ngFor="let item of tag2" cdkDrag [item]="item"></app-card>
                 </div>
             </mat-expansion-panel>
-            <mat-expansion-panel>
+            <mat-expansion-panel  [expanded]="true" (opened)="true">
                 <mat-expansion-panel-header>
                     <mat-panel-title>
                         Tag 3
@@ -76,7 +76,6 @@
             </mat-expansion-panel>
         </mat-accordion>
     </div>
-    <hr>
     <div class="content selected-area">
         <mat-card-title>Selected Card</mat-card-title>
         <mat-accordion class="example-headers-align">
@@ -100,7 +99,7 @@
                     <app-card *ngFor="let item of selected" cdkDrag [item]="item"></app-card>
                 </div>
                 <mat-action-row *ngIf="selected.length > 2 && selected.length < 11">
-                    <button mat-raised-button color="accent" (click)="formatedPDF()">Get PDF file cards</button>
+                    <button mat-raised-button color="primary" (click)="formatedPDF()">Get PDF file cards</button>
                 </mat-action-row>
             </mat-expansion-panel>
         </mat-accordion>
