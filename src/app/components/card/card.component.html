@@ -1,6 +1,8 @@
 <mat-card class="box">
-    <div class="img" [style.background-image]="'url('+item.img+')'"></div>
     <mat-card-content>
         <mat-card-title>{{ item.title }}</mat-card-title>
+        <p *ngIf="item.description.length > 1">
+            {{ item.description }}
+        </p>
     </mat-card-content>
 </mat-card>
