@@ -13,7 +13,6 @@
   box-sizing: border-box;
 }
 .bg-image{
-  background: url('./assets/images/bg.jpg') no-repeat center;
   background-size: cover;
   min-height: 100vh;
 }
@@ -23,6 +22,12 @@ body{
 .up-text{
   font-size: 16px;
   margin: 5px 0px 10px;
+}
+.center-mode{
+  display: flex;
+  justify-content: center;
+  float: left;
+  width: 100%;
 }
 .cards-area-selected{
   display: flex;

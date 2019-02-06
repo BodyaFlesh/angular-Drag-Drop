@@ -242,8 +242,15 @@ export class AppComponent implements OnInit{
       props.pageInLeft = 5;
     }
     let heightStep = col.right > col.left ? col.right : col.left;
-    props.pageInTop = this.message.date ? heightStep * 5 + 5 : heightStep * 5;
-    console.log({col, 'top': props.pageInTop});
+    props.pageInTop = heightStep * 5 + 10;
+    if(this.message.date){
+      props.pageInTop += 5;
+    }
+    console.log(props.pageInTop);
+
+    if(this.message.project){
+      doc.text(this.message.project, props.pageInLeft, props.pageInTop, { align: 'left'});
+    }
 
     doc.setFontSize(22);
     props.pageInTop+= 15;

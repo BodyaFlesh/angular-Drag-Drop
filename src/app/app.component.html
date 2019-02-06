@@ -116,10 +116,15 @@
                 <input matInput placeholder="Rol van jouw collega" name="collega_rol" [(ngModel)]="message.collega_rol">
             </mat-form-field>
         </div>
-        <div class="width">
-            <section class="example-section">
-                <mat-checkbox color="primary" name="date" class="example-margin" [(ngModel)]="message.date">Datum</mat-checkbox>
-            </section>
+        <div class="width center-mode">
+            <div class="half">
+                <mat-form-field>
+                    <input matInput placeholder="Projectnaam" name="project" [(ngModel)]="message.project">
+                </mat-form-field>
+                <section class="example-section">
+                    <mat-checkbox color="primary" name="date" class="example-margin" [(ngModel)]="message.date">Datum</mat-checkbox>
+                </section>
+            </div>
         </div>
         <div class="width text-center">
             <button mat-raised-button color="primary" class="big-size" type="submit">Volgende</button>
