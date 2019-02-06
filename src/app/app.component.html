@@ -89,29 +89,54 @@
         </p>
     </div>
 </div>
-<div class="form-area" [class.hide]="content">
+<div class="form-area bg-image" [class.hide]="content">
     <form class="content-form" method="POST" (ngSubmit)="onSubmit()">
-        <button type="button" class="icon-info" mat-fab color="primary" (click)="modal= !modal">
-            <mat-icon aria-label="icon-button with a heart icon">info</mat-icon>
-        </button>
+        <button mat-raised-button color="primary" class="icon-info" type="button" (click)="modal= !modal">Instructies</button>
         <mat-card-title>Gevraagd: grenswerkers.</mat-card-title>
         <mat-card-title class="small-text">Taken, competenties en persoonskenmerken van verbinders op weg naar regionale samenwerking</mat-card-title>
-        <mat-form-field>
-            <input matInput placeholder="Name" name="name" [(ngModel)]="message.name" required>
-        </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Name2" name="name2" [(ngModel)]="message.name2">
-        </mat-form-field>
-        <button mat-raised-button color="primary" type="submit">Next</button>
+        <div class="half">
+            <mat-form-field>
+                <input matInput placeholder="Jouw naam" name="name" [(ngModel)]="message.name" required>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Jouw organisatie" name="organization" [(ngModel)]="message.organization">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Jouw rol" name="rol" [(ngModel)]="message.rol">
+            </mat-form-field>
+        </div>
+        <div class="half">
+            <mat-form-field>
+                <input matInput placeholder="Naam van jouw collega" name="collega_name" [(ngModel)]="message.collega_name">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Organisatie van jouw collega" name="collega_organization" [(ngModel)]="message.collega_organization">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Rol van jouw collega" name="collega_rol" [(ngModel)]="message.collega_rol">
+            </mat-form-field>
+        </div>
+        <div class="width">
+            <section class="example-section">
+                <mat-checkbox color="primary" name="date" class="example-margin" [(ngModel)]="message.date">Datum</mat-checkbox>
+            </section>
+        </div>
+        <div class="width text-center">
+            <button mat-raised-button color="primary" class="big-size" type="submit">Volgende</button>
+        </div>
     </form>
 </div>
-<div class="width cards-area-selected" [class.paddingTop]="selected1.length > 4 && selected1.length < 11 && selected2.length > 4 && selected2.length < 11 && selected3.length > 4 && selected3.length < 11">
-    <div class="width full-width" 
-        [class.show]="selected1.length > 4 && selected1.length < 11 && selected2.length > 4 && selected2.length < 11 && selected3.length > 4 && selected3.length < 11"
-        >
+<div class="width cards-area-selected paddingTop bg-image">
+    <div class="width full-width">
         <div class="width" *ngIf="!progress.loaded">
-            <h2>You can get pdf file</h2>
-            <button mat-raised-button color="primary" type="button" (click)="formatedPDF()" >Get pdf</button>
+            <h2 *ngIf="condition()">You can get pdf file</h2>
+            <button 
+                mat-raised-button 
+                color="primary" 
+                type="button" 
+                (click)="formatedPDF()"
+                [disabled]="!condition()" 
+            >Get pdf</button>
         </div>
         <div class="width" *ngIf="progress.loaded">
             <h3>Creating pdf file please wait</h3>
@@ -174,7 +199,10 @@
         </mat-accordion>
     </div>
     <div class="content selected-area">
-        <mat-card-title>Selected Card</mat-card-title>
+        <p class="up-text">
+            Selecteer 1-5 mogelijke taken van de grenswerker waarvoor jij (of de collega voor wie je een profiel maakt) de benodigde competenties en/of persoonskenmerken wilt verkennen. 
+        </p>
+        <!-- <mat-card-title>Selected Card</mat-card-title> -->
         <mat-accordion class="example-headers-align"  multi="true">
             <mat-expansion-panel  class="taken-light-section" [expanded]="true" (opened)="true">
                 <mat-expansion-panel-header>

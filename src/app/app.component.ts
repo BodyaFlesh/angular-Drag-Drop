@@ -3,6 +3,7 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag
 import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 import html2canvas from 'html2canvas';
 import * as jsPDF from 'jspdf'
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-root',
@@ -10,11 +11,9 @@ import * as jsPDF from 'jspdf'
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
-  private message:any       = {
-    name  : '',
-    name2 : ''
+  private message:any = {
+    date: false
   };
-
   private progress:any   = {
     loaded: false
   };
@@ -80,7 +79,7 @@ export class AppComponent implements OnInit{
     { title:  'Mensen, jou meer of minder bekend, warm kunnen maken', description: '' },
     { title:  'Organisatorisch inzicht', description: '' },
     { title:  'Gericht op het maken van duidelijke afspraken', description: '' },
-    { title:  'Alternatieven kunnen bieden voor afspraken (Zie ik je op de 9e? Zo niet dan bel ik je om een nieuwe afspraak te maken)', description: '' },
+    { title:  'Alternatieven kunnen bieden voor afspraken', description: '' },
     { title:  'Financieel inzicht', description: '' },
     { title:  'Technisch voorzitterschap kunnen voeren ', description: '' },
     { title:  'Het gezicht zijn van de onderwijsinstelling ', description: '' },
@@ -178,14 +177,16 @@ export class AppComponent implements OnInit{
   }
 
   onSubmit() {
-    if(this.message.name.length > 1){
+    if(this.message.name && this.message.name.length > 1){
       this.content = true;
     }
   }
 
   createPdf(images){
-    console.log(images);
-
+    let col = {
+      left: 1,
+      right: 0
+    }
     let props:any = {
       widthImg: 50,
       heighImg: 45,
@@ -199,14 +200,53 @@ export class AppComponent implements OnInit{
     };
 
     let doc = new jsPDF(props.page);
-    
-    doc.setFontSize(20);
-    doc.text(this.message.name, props.pageInLeft, props.pageInTop, { align: 'left'});
-    if(this.message.name2){
-      doc.text(this.message.name2, 205, props.pageInTop, { align: 'right', });
+    doc.setFont("times");
+    doc.setFontSize(12);
+    if(this.message.date){
+      doc.text(moment().format('DD.MM.YYYY'), props.pageInLeft, props.pageInTop, { align: 'left'});
+      props.pageInTop += 5;
     }
-    doc.setFontSize(24);
-    props.pageInTop = 25;
+    doc.text(this.message.name, props.pageInLeft, props.pageInTop, { align: 'left'});
+    props.pageInTop += 5;
+    if(this.message.organization){
+      doc.text(this.message.organization, props.pageInLeft, props.pageInTop, { align: 'left'});
+      props.pageInTop += 5;
+      col.left++;
+    }
+    if(this.message.rol){
+      doc.text(this.message.rol, props.pageInLeft, props.pageInTop, { align: 'left'});
+      props.pageInTop += 5;
+      col.left++;
+    }
+    //other persone
+    if(this.message.collega_name || this.message.collega_organization || this.message.collega_rol){
+      this.message.date ? props.pageInTop = 15 : props.pageInTop = 10;
+      props.pageInLeft = 100;
+
+      if(this.message.collega_name){
+        doc.text(this.message.collega_name, props.pageInLeft, props.pageInTop, { align: 'left'});
+        props.pageInTop += 5;
+        col.right++;
+      }
+      if(this.message.collega_organization){
+        doc.text(this.message.collega_organization, props.pageInLeft, props.pageInTop, { align: 'left'});
+        props.pageInTop += 5;
+        col.right++;
+      }
+      if(this.message.collega_rol){
+        doc.text(this.message.collega_rol, props.pageInLeft, props.pageInTop, { align: 'left'});
+        props.pageInTop += 5;
+        col.right++;
+      }
+
+      props.pageInLeft = 5;
+    }
+    let heightStep = col.right > col.left ? col.right : col.left;
+    props.pageInTop = this.message.date ? heightStep * 5 + 5 : heightStep * 5;
+    console.log({col, 'top': props.pageInTop});
+
+    doc.setFontSize(22);
+    props.pageInTop+= 15;
 
     //Taken
     doc.text('Taken', props.pageInLeft, props.pageInTop, { align: 'left'});
@@ -214,14 +254,15 @@ export class AppComponent implements OnInit{
     props.pageInTop += 5;
 
     images['tag1'].forEach(el => {
-      doc.addImage(el, 'PNG', props.pageInLeft, props.pageInTop, props.widthImg, props.heighImg, '', 'SLOW');
-
-      props.pageInLeft += props.widthImg;
-
       if(props.pageInLeft > 165){
         props.pageInLeft = 5;
         props.pageInTop += props.heighImg;
       }
+      doc.addImage(el, 'PNG', props.pageInLeft, props.pageInTop, props.widthImg, props.heighImg, '', 'SLOW');
+
+      props.pageInLeft += props.widthImg;
+
+      
     });
 
     if(images['tag1'] != 8){
@@ -231,22 +272,26 @@ export class AppComponent implements OnInit{
     //Taakgerichte competenties
     props.pageInTop += 10;
     props.pageInLeft = 5;
+    if(props.pageInTop > 225){
+      doc.addPage(props.page);
+      props.pageInLeft = 5;
+      props.pageInTop = 10;
+    }
     doc.text('Taakgerichte competenties', props.pageInLeft, props.pageInTop, { align: 'left'});
     props.pageInTop += 5;
     images['tag2'].forEach(el => {
-      doc.addImage(el, 'PNG', props.pageInLeft, props.pageInTop, props.widthImg, props.heighImg, '', 'SLOW');
-
-      props.pageInLeft += props.widthImg;
-
-      if(props.pageInLeft > 165){
-        props.pageInLeft = 5;
-        props.pageInTop += props.heighImg;
-      }
-      if(props.pageInTop > 250){
+      if(props.pageInTop > 240){
         doc.addPage(props.page);
         props.pageInLeft = 5;
         props.pageInTop = 10;
       }
+      if(props.pageInLeft > 165){
+        props.pageInLeft = 5;
+        props.pageInTop += props.heighImg;
+      }
+      doc.addImage(el, 'PNG', props.pageInLeft, props.pageInTop, props.widthImg, props.heighImg, '', 'SLOW');
+
+      props.pageInLeft += props.widthImg;
     });
 
     if(images['tag2'] != 8){
@@ -256,29 +301,33 @@ export class AppComponent implements OnInit{
     //Taakgerichte competenties
     props.pageInTop += 10;
     props.pageInLeft = 5;
+    if(props.pageInTop > 225){
+      doc.addPage(props.page);
+      props.pageInLeft = 5;
+      props.pageInTop = 10;
+    }
     doc.text('Persoonskenmerken', props.pageInLeft, props.pageInTop, { align: 'left'});
     props.pageInTop += 5;
     images['tag3'].forEach(el => {
-      doc.addImage(el, 'PNG', props.pageInLeft, props.pageInTop, props.widthImg, props.heighImg, '', 'SLOW');
-
-      props.pageInLeft += props.widthImg;
-
-      if(props.pageInLeft > 165){
-        props.pageInLeft = 5;
-        props.pageInTop += props.heighImg;
-      }
-      if(props.pageInTop > 250){
+      if(props.pageInTop > 240){
         doc.addPage(props.page);
         props.pageInLeft = 5;
         props.pageInTop = 10;
       }
+      if(props.pageInLeft > 165){
+        props.pageInLeft = 5;
+        props.pageInTop += props.heighImg;
+      }
+      doc.addImage(el, 'PNG', props.pageInLeft, props.pageInTop, props.widthImg, props.heighImg, '', 'SLOW');
+
+      props.pageInLeft += props.widthImg;
     });
 
     if(images['tag3'] != 8){
       props.pageInTop += props.heighImg;
     }
-    
-    doc.save('pdf.pdf');
+    console.log(this.message);
+    doc.save(this.message.name+'.pdf');
   }
 
   formatedPDF(){
@@ -328,7 +377,10 @@ export class AppComponent implements OnInit{
     });
   }
 
-  ngOnInit() {
+  condition(){
+    return this.selected1.length > 4 && this.selected1.length < 11 && this.selected2.length > 4 && this.selected2.length < 11 && this.selected3.length > 4 && this.selected3.length < 11;
+  }
 
+  ngOnInit() {
   }
 }
