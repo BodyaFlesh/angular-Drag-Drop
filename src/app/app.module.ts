@@ -11,16 +11,20 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { AppComponent } from './app.component';
 import { CardComponent } from './components/card/card.component';
 import { TagComponent } from './components/tag/tag.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CardComponent,
-    TagComponent
+    TagComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +37,12 @@ import { TagComponent } from './components/tag/tag.component';
     MatIconModule,
     MatFormFieldModule,
     MatInputModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatTabsModule,
+    MatDialogModule
+  ],
+  entryComponents: [
+    ModalComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

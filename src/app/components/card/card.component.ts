@@ -6,7 +6,12 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent implements OnInit {
-  @Input() item: string;
+  @Input() item: any;
+
+  change(){
+    console.log(this.item.rotate);
+    this.item.rotate = !this.item.rotate;
+  }
 
   constructor() { }
 

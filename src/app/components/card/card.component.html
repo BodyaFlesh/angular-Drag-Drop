@@ -1,8 +1,27 @@
 <mat-card class="box">
-    <mat-card-content>
+    <mat-card-content *ngIf="!item.description">
         <mat-card-title>{{ item.title }}</mat-card-title>
         <p *ngIf="item.description.length > 1">
             {{ item.description }}
         </p>
     </mat-card-content>
+    <div class="flip-container" [ngClass]="{'hover' : item.rotate}" *ngIf="item.description">
+        <button mat-icon-button color="primary" (click)="change()" data-html2canvas-ignore="true">
+            <mat-icon aria-label="Example icon-button with a heart icon">rotate_left</mat-icon>
+        </button>
+        <div class="flipper">
+            <div class="front">
+                <mat-card-content>
+                    <mat-card-title>{{ item.title }}</mat-card-title>
+                </mat-card-content>
+            </div>
+            <div class="back" data-html2canvas-ignore="true">
+                <mat-card-content>
+                    <p *ngIf="item.description.length > 1">
+                        {{ item.description }}
+                    </p>
+                </mat-card-content>
+            </div>
+        </div>
+    </div>
 </mat-card>

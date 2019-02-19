@@ -12,10 +12,93 @@
   margin: 0px;
   box-sizing: border-box;
 }
-.bg-image{
-  background-size: cover;
-  min-height: 100vh;
+mat-tab-group{
+  margin-top: 60px;
 }
+//////////////////////////////////////////////////
+.flip-container {
+  display: block;
+  position: relative;
+  perspective: 200px;
+  .mat-icon-button{
+    position: absolute;
+    top: 0px;
+    right: -10px;
+    z-index: 10;
+  }
+}
+.small-margin .mat-expansion-panel-spacing{
+  margin-bottom: 10px!important;
+}
+	/* flip the pane when hovered */
+.flip-container.hover .flipper {
+		transform: rotateY(180deg);
+}
+
+.flip-container, .front, .back {
+	width: 200px;
+	height: 200px;
+}
+
+/* flip speed goes here */
+.flipper {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+	transition: 0.6s;
+	transform-style: preserve-3d;
+  // transform-origin: 100% 50%;
+	// position: relative;
+}
+#taken .flip-container .mat-icon-button{
+  display: none!important;
+}
+#taken .flip-container.hover .flipper{
+  transform: rotateY(0deg);
+}
+
+/* hide back of pane during swap */
+.front, .back {
+	backface-visibility: hidden;
+  position: absolute;
+  display: flex;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+	top: 0;
+	left: -10px;
+}
+
+/* front pane, placed above back */
+.front {
+	z-index: 2;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back {
+	transform: rotateY(180deg);
+}
+/////////////////////////////////////////////////////
+header{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 60px;
+  width: 100%;
+  background-color: #fff;
+  text-align: center;
+  h1{
+    line-height: 60px;
+  }
+}
+// .bg-image{
+//   background-size: cover;
+//   min-height: 100vh;
+// }
 body{
   padding: 0px 1vw;
 }
@@ -76,19 +159,20 @@ button.big-size{
 }
 .form-area{
     background-color: #fff;
-    z-index: 1001;
+    // z-index: 1001;
     width: 100%;
     display: flex;
-    height: 100vh;
-    position: fixed;
-    top: 0px;
-    left: 0px;
+    padding: 30px;
+    //min-height: 100vh;
+    // position: fixed;
+    // top: 0px;
+    // left: 0px;
     justify-content: center;
     transition: 0.7s ease-in;
     align-items: center;
-    &.hide{
-        transform: translateY(-100%);
-    }
+    // &.hide{
+    //     transform: translateY(-100%);
+    // }
     .text-center{
       text-align: center;
     }
@@ -144,19 +228,18 @@ button.big-size{
   font-size: 20px;
 }
 .info-section{
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  z-index: 1002;
+  // position: fixed;
+  // top: 0px;
+  // left: 0px;
+  // z-index: 1002;
   background-color: #fff;
-  width: 100%;
-  max-height: 100vh;
-  height: 100vh;
-  overflow: auto;
+  // width: 100%;
+  // max-height: 100vh;
+  // height: 100vh;
+  // overflow: auto;
   padding: 20px 0px;
-  transition: 0.6s ease-out;
-  border: 5px solid #333;
-  transform: translateY(-100%);
+  // transition: 0.6s ease-out;
+  // border: 5px solid #333;
   &::-webkit-scrollbar {
     width: 10px;
     height: 10px;
@@ -189,9 +272,6 @@ button.big-size{
   }
   &::-webkit-scrollbar-corner {
     background: transparent;
-  }
-  &.active{
-    transform: translateY(0);
   }
   button{
     position: absolute;
@@ -248,10 +328,54 @@ app-card{
     background: url(./assets/images/bg-yellow.png);
     background-size: cover;
     background-position: center;
-    color: #f3bf2e;
+    color: #705b21;
     .mat-card-title{
-      color: #f3bf2e!important;
+      color: #705b21!important;
     }
+  }
+}
+.width{
+  float: left;
+  width: 100%;
+}
+.full-page{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 5;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  transition: 0.7s ease-out;
+  background-color: #fff;
+  &.hide{
+    transform: translateY(-100%);
+  }
+}
+.col{
+  float: left;
+  width: 400px;
+  max-width: 50%;
+  ul{
+    float: left;
+    width: 100%;
+  }
+}
+.text-center{
+  text-align: center;
+}
+.margin{
+  margin: 20px 0px 30px;
+}
+.margin-text{
+  margin: 10px 0px 20px;
+}
+.margin-bottom{
+  margin-bottom: 40px;
+  .mat-raised-button{
+    margin: 5px 10px;
   }
 }
 mat-expansion-panel.taken-section{
@@ -332,7 +456,7 @@ mat-card{
   .mat-card-title{
     width: 100%;
     text-align: center;
-    font-size: 16px;
+    font-size: 15px;
     margin: 0px 0px 5px;
   }
   .mat-card-content{
@@ -366,7 +490,7 @@ mat-card{
 .list {
   max-width: 100%;
   border: solid 1px #ccc;
-  min-height: 170px;
+  min-height: 205px;
   display: flex;
   flex-direction: row;
   background: white;
