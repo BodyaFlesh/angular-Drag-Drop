@@ -17,7 +17,7 @@ export class AppComponent implements OnInit{
   private message:any = {
     date: false
   };
-  private form:boolean = false;
+  private form:boolean = true;
   private progress:any   = {
     loaded: false
   };

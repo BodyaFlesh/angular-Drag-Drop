@@ -18,13 +18,15 @@ import { AppComponent } from './app.component';
 import { CardComponent } from './components/card/card.component';
 import { TagComponent } from './components/tag/tag.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { SectionComponent } from './components/section/section.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CardComponent,
     TagComponent,
-    ModalComponent
+    ModalComponent,
+    SectionComponent
   ],
   imports: [
     BrowserModule,

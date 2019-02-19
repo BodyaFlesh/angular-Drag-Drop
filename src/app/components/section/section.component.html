@@ -1,0 +1,11 @@
+<div class="example-container" cdkDropListGroup>
+    <div cdkDropList [cdkDropListEnterPredicate]="enter" (cdkDropListDropped)="drop()" #placeholder></div>
+    <div cdkDropList *ngFor="let item of items"
+         [cdkDropListEnterPredicate]="enter" 
+         (cdkDropListDropped)="drop($event)" 
+         #tag1List="cdkDropList"
+         [cdkDropListData]="tag1"
+         [cdkDropListConnectedTo]="[selectedList1]">
+        <app-card class="taken" cdkDrag [item]="item"></app-card>
+    </div>
+</div> 

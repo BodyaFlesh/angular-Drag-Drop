@@ -47,6 +47,7 @@
 </div>
 <mat-tab-group dynamicHeight>
     <mat-tab label="Taken">
+        <app-section [items]="tag1"></app-section>
         <p class="margin-text">
             Selecteer 1-5 mogelijke taken van de grenswerker waarvoor jij 
             (of de collega voor wie je een profiel maakt) de benodigde
@@ -61,7 +62,7 @@
                                 Taken
                             </mat-panel-title>
                         </mat-expansion-panel-header>
-                        <div
+                        <!-- <div
                             cdkDropList
                             cdkDropListOrientation="horizontal"
                             #tag1List="cdkDropList"
@@ -70,7 +71,7 @@
                             class="list"
                             (cdkDropListDropped)="drop($event)">
                             <app-card class="taken" *ngFor="let item of tag1" cdkDrag [item]="item"></app-card>
-                        </div>
+                        </div> -->
                     </mat-expansion-panel>
                 </mat-accordion>
             </div>
