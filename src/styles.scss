@@ -89,6 +89,7 @@ header{
   left: 0px;
   height: 60px;
   width: 100%;
+  z-index: 1001;
   background-color: #fff;
   text-align: center;
   h1{
@@ -116,7 +117,9 @@ body{
   display: flex;
   transition: 0.4s ease-out;
   position: relative;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  align-content: stretch;
+  //justify-content: space-between;
   &.paddingTop{
     padding-top: 60px;
   }
