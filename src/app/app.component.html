@@ -48,9 +48,7 @@
 <mat-tab-group dynamicHeight>
     <mat-tab label="Taken">
         <p class="margin-text">
-            Selecteer 1-5 mogelijke taken van de grenswerker waarvoor jij 
-            (of de collega voor wie je een profiel maakt) de benodigde
-            competenties en/of persoonskenmerken wilt verkennen. 
+            Selecteer 1-7 van de 33 mogelijke taken die jij of je collega uitvoert of zal gaan uitvoeren...’ AND Voor een toelichting op een taak: draai de kaart om door op de ronde pijl te klikken 
         </p>
         <div class="width cards-area-selected">
             <div class="content width">
@@ -98,6 +96,9 @@
         </div>
     </mat-tab>
     <mat-tab label="Taakgerichte competenties">
+        <p class="margin-text">
+            Selecteer 1-10 van de 38 taakgerichte competenties die essentieel zijn voor het uitvoeren van de geselecteerde taken.
+        </p>
         <div class="width cards-area-selected">
             <div class="content width">
                 <mat-accordion multi="true">
@@ -144,6 +145,9 @@
         </div>
     </mat-tab>
     <mat-tab label="Persoonskenmerken">
+        <p class="margin-text">
+            Selecteer 1-10 van de 49 persoonskenmerken die belangrijk zijn voor een goede uitvoering van de geselecteerde taken.
+        </p>
         <div class="width cards-area-selected">
             <div class="content width">
                 <mat-accordion multi="true">
@@ -236,13 +240,13 @@
                         type="button" 
                         (click)="formatedPDF()"
                         [disabled]="!condition()" 
-                    >Afdrukken</button>
-                    <a href="/" mat-raised-button color="warn" >
-                        Vul de tool opnieuw in
-                    </a>
+                    >Download hier je resultaten</button>
                 </div>
                 <div class="width" *ngIf="progress.loaded">
                     <h3>Creating pdf file please wait</h3>
+                    <a href="/" mat-raised-button color="warn" >
+                        Vul de tool opnieuw in
+                    </a>
                 </div>
             </div>
         </div>

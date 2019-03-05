@@ -18,13 +18,15 @@ import { AppComponent } from './app.component';
 import { CardComponent } from './components/card/card.component';
 import { TagComponent } from './components/tag/tag.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { SmallModalComponent } from './components/small-modal/small-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CardComponent,
     TagComponent,
-    ModalComponent
+    ModalComponent,
+    SmallModalComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,8 @@ import { ModalComponent } from './components/modal/modal.component';
     MatDialogModule
   ],
   entryComponents: [
-    ModalComponent
+    ModalComponent,
+    SmallModalComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

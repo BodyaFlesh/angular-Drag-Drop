@@ -7,6 +7,7 @@ import * as jsPDF from 'jspdf'
 import * as moment from 'moment';
 
 import { ModalComponent } from './components/modal/modal.component';
+import { SmallModalComponent } from './components/small-modal/small-modal.component';
 
 @Component({
   selector: 'app-root',
@@ -171,12 +172,25 @@ export class AppComponent implements OnInit{
   constructor(public dialog: MatDialog) {}
 
   openDialog() {
-    console.log('123');
     const dialogRef = this.dialog.open(ModalComponent);
-    console.log(dialogRef);
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
     });
+  }
+
+  openSmallDialog(content) {
+    const dialogRef = this.dialog.open(SmallModalComponent, { data: content });
+    dialogRef.afterClosed().subscribe(result => {
+    });
+  }
+
+  checkCount(){
+    if(this.selected1.length > 7){
+      this.openSmallDialog('Het maximum is 7 kaarten');
+    }else if(this.selected2.length > 10){
+      this.openSmallDialog('Het maximum is 10 kaarten');
+    }else if(this.selected3.length > 10){
+      this.openSmallDialog('Het maximum is 10 kaarten');
+    }
   }
 
   drop(event: CdkDragDrop<string[]>) {
@@ -188,6 +202,7 @@ export class AppComponent implements OnInit{
                         event.previousIndex,
                         event.currentIndex);
     }
+    this.checkCount();
   }
 
   onSubmit() {
@@ -406,7 +421,7 @@ export class AppComponent implements OnInit{
     return this.message.name &&
       this.message.name.length > 1 &&
       this.selected1.length > 0 && 
-      this.selected1.length < 6 && 
+      this.selected1.length < 8 && 
       this.selected2.length > 0 && 
       this.selected2.length < 11 && 
       this.selected3.length > 0 && 
