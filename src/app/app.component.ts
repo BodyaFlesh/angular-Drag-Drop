@@ -18,6 +18,7 @@ export class AppComponent implements OnInit{
   private message:any = {
     date: false
   };
+  private customField:string = '';
   private form:boolean = false;
   private progress:any   = {
     loaded: false
@@ -172,9 +173,10 @@ export class AppComponent implements OnInit{
   constructor(public dialog: MatDialog) {}
 
   openDialog() {
-    const dialogRef = this.dialog.open(ModalComponent);
-    dialogRef.afterClosed().subscribe(result => {
+    const dialogRef = this.dialog.open(ModalComponent, {
+      width: '55vw',
     });
+    dialogRef.afterClosed().subscribe();
   }
 
   openSmallDialog(content) {
@@ -203,6 +205,13 @@ export class AppComponent implements OnInit{
                         event.currentIndex);
     }
     this.checkCount();
+  }
+
+  addCustomCard(list){
+    list.push(
+      { rotate: false, title: this.customField, description: '' },
+    );
+    this.customField = '';
   }
 
   onSubmit() {
@@ -366,6 +375,13 @@ export class AppComponent implements OnInit{
     if(images['tag3'] != 8){
       props.pageInTop += props.heighImg;
     }
+
+    // var string = doc.output('datauristring');
+    // var iframe = "<iframe width='100%' height='100%' src='" + string + "'></iframe>"
+    // var x = window.open();
+    // x.document.open();
+    // x.document.write(iframe);
+    // x.document.close();
     doc.save(this.message.name+'.pdf');
   }
 

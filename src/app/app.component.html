@@ -1,10 +1,10 @@
 <header>
-    <h1>Grenswerkerstool</h1>
+    <h1>Grenswerkerstool <button mat-raised-button color="primary" class="icon-info" type="button" (click)="openDialog()">Instructies</button></h1>
 </header>
 <div class="full-page width" [class.hide]="form">
     <div class="form-area bg-image">
         <form class="content-form" method="POST" (ngSubmit)="onSubmit()">
-            <button mat-raised-button color="primary" class="icon-info" type="button" (click)="openDialog()">Instructies</button>
+            <!-- <button mat-raised-button color="primary" class="icon-info" type="button" (click)="openDialog()">Instructies</button> -->
             <mat-card-title>Gevraagd: grenswerkers.</mat-card-title>
             <mat-card-title class="small-text">Taken, competenties en persoonskenmerken van verbinders op weg naar regionale samenwerking</mat-card-title>
             <div class="half">
@@ -94,6 +94,17 @@
                 </mat-accordion>
             </div>
         </div>
+        <div class="width">
+            <form class="customFormCard" method="POST" (ngSubmit)="addCustomCard(selected1)">
+                <mat-card-title>Add custom card</mat-card-title>
+                    <mat-form-field>
+                        <input matInput placeholder="Title" maxlength="70" name="name" [(ngModel)]="customField" required>
+                    </mat-form-field>
+                <div class="width text-center">
+                    <button mat-raised-button color="primary" class="big-size" type="submit">Add custom card</button>
+                </div>
+            </form>
+        </div>
     </mat-tab>
     <mat-tab label="Taakgerichte competenties">
         <p class="margin-text">
@@ -143,6 +154,17 @@
                 </mat-accordion>
             </div>
         </div>
+        <div class="width">
+            <form class="customFormCard" method="POST" (ngSubmit)="addCustomCard(selected2)">
+                <mat-card-title>Add custom card</mat-card-title>
+                    <mat-form-field>
+                        <input matInput placeholder="Title" maxlength="70" name="name" [(ngModel)]="customField" required>
+                    </mat-form-field>
+                <div class="width text-center">
+                    <button mat-raised-button color="primary" class="big-size" type="submit">Add custom card</button>
+                </div>
+            </form>
+        </div>
     </mat-tab>
     <mat-tab label="Persoonskenmerken">
         <p class="margin-text">
@@ -191,6 +213,17 @@
                     </mat-expansion-panel>
                 </mat-accordion>
             </div>
+        </div>
+        <div class="width">
+            <form class="customFormCard" method="POST" (ngSubmit)="addCustomCard(selected3)">
+                <mat-card-title>Add custom card</mat-card-title>
+                    <mat-form-field>
+                        <input matInput placeholder="Title" maxlength="70" name="name" [(ngModel)]="customField" required>
+                    </mat-form-field>
+                <div class="width text-center">
+                    <button mat-raised-button color="primary" class="big-size" type="submit">Add custom card</button>
+                </div>
+            </form>
         </div>
     </mat-tab>
     <mat-tab label="Samenvatting en afdrukken">
@@ -245,7 +278,7 @@
                 <div class="width" *ngIf="progress.loaded">
                     <h3>Creating pdf file please wait</h3>
                     <a href="/" mat-raised-button color="warn" >
-                        Vul de tool opnieuw in
+                        Ik wil de tool nog een keer invullen
                     </a>
                 </div>
             </div>

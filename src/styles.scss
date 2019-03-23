@@ -83,6 +83,14 @@ mat-tab-group{
 	transform: rotateY(180deg);
 }
 /////////////////////////////////////////////////////
+.customFormCard{
+  max-width: 320px;
+  input,
+  mat-form-field,
+  .mat-form-field-infix{
+    width: 100%;
+  }
+}
 header{
   position: fixed;
   top: 0px;
@@ -94,6 +102,11 @@ header{
   text-align: center;
   h1{
     line-height: 60px;
+  }
+  button{
+    position: relative;
+    top: -5px;
+    margin-left: 15px;
   }
 }
 // .bg-image{
@@ -278,7 +291,7 @@ button.big-size{
   }
   button{
     position: absolute;
-    top: 20px;
+    top: 70px;
     right: 20px;
   }
   .container-content{
