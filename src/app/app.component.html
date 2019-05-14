@@ -6,7 +6,7 @@
         <form class="content-form" method="POST" (ngSubmit)="onSubmit()">
             <!-- <button mat-raised-button color="primary" class="icon-info" type="button" (click)="openDialog()">Instructies</button> -->
             <mat-card-title>Gevraagd: grenswerkers.</mat-card-title>
-            <mat-card-title class="small-text">Taken, competenties en persoonskenmerken van verbinders op weg naar regionale samenwerking</mat-card-title>
+            <mat-card-title class="small-text">Taken, competenties en Persoonlijke Kwaliteiten van verbinders op weg naar regionale samenwerking</mat-card-title>
             <div class="half">
                 <mat-form-field>
                     <input matInput placeholder="Jouw naam" name="name" [(ngModel)]="message.name" required>
@@ -106,7 +106,7 @@
             </form>
         </div>
     </mat-tab>
-    <mat-tab label="Taakgerichte competenties">
+    <mat-tab label="Сompetenties">
         <p class="margin-text">
             Selecteer 1-10 van de 38 taakgerichte competenties die essentieel zijn voor het uitvoeren van de geselecteerde taken.
         </p>
@@ -116,7 +116,7 @@
                     <mat-expansion-panel class="competensies-section" [expanded]="true" (opened)="true">
                         <mat-expansion-panel-header>
                             <mat-panel-title>
-                                Taakgerichte competenties
+                                Сompetenties
                             </mat-panel-title>
                         </mat-expansion-panel-header>
                         <div
@@ -137,7 +137,7 @@
                     <mat-expansion-panel class="competensies-light-section" [expanded]="true" (opened)="true">
                         <mat-expansion-panel-header>
                             <mat-panel-title>
-                                Taakgerichte competenties
+                                Сompetenties
                             </mat-panel-title>
                         </mat-expansion-panel-header>
                         <div
@@ -166,9 +166,9 @@
             </form>
         </div>
     </mat-tab>
-    <mat-tab label="Persoonskenmerken">
+    <mat-tab label="Persoonlijke Kwaliteiten">
         <p class="margin-text">
-            Selecteer 1-10 van de 49 persoonskenmerken die belangrijk zijn voor een goede uitvoering van de geselecteerde taken.
+            Selecteer 1-10 van de 49 Persoonlijke Kwaliteiten die belangrijk zijn voor een goede uitvoering van de geselecteerde taken.
         </p>
         <div class="width cards-area-selected">
             <div class="content width">
@@ -176,7 +176,7 @@
                     <mat-expansion-panel class="kenmerken-section" [expanded]="true" (opened)="true">
                         <mat-expansion-panel-header>
                             <mat-panel-title>
-                                Persoonskenmerken 
+                                Persoonlijke Kwaliteiten 
                             </mat-panel-title>
                         </mat-expansion-panel-header>
                         <div
@@ -197,7 +197,7 @@
                     <mat-expansion-panel class="kenmerken-light-section" [expanded]="true" (opened)="true">
                         <mat-expansion-panel-header>
                             <mat-panel-title>
-                                Persoonskenmerken 
+                                Persoonlijke Kwaliteiten 
                             </mat-panel-title>
                         </mat-expansion-panel-header>
                         <div
@@ -305,7 +305,7 @@
                 <mat-expansion-panel class="competensies-light-section" [expanded]="true" (opened)="true">
                     <mat-expansion-panel-header>
                         <mat-panel-title>
-                            Taakgerichte competenties
+                            Сompetenties
                         </mat-panel-title>
                     </mat-expansion-panel-header>
                     <div
@@ -318,11 +318,11 @@
                     </div>
                 </mat-expansion-panel>
             </mat-accordion>
-            <mat-accordion class="example-headers-align small-margin" id="persoonskenmerken"  multi="true">
+            <mat-accordion class="example-headers-align small-margin" id="Persoonlijke Kwaliteiten"  multi="true">
                 <mat-expansion-panel class="kenmerken-light-section" [expanded]="true" (opened)="true">
                     <mat-expansion-panel-header>
                         <mat-panel-title>
-                            Persoonskenmerken 
+                            Persoonlijke Kwaliteiten 
                         </mat-panel-title>
                     </mat-expansion-panel-header>
                     <div

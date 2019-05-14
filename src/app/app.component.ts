@@ -38,39 +38,39 @@ export class AppComponent implements OnInit{
   }
 
   tag1 = this.shuffleArray([
-    { rotate: false, title:  'Verbinden tussen jou en collega’s van andere scholen', description: 'Verbinden van mede-initiatiefnemers van scholen onderling' },
-    { rotate: false, title:  'Verbinden van partijen buiten de school', description: 'Verbinden van mensen vanuit overheden, bedrijfsleven en maatschappelijke partijen' },
+    { rotate: false, title:  'Verbinden van mede-initiatiefnemers van scholen onderling', description: 'Verbinden van mede-initiatiefnemers van scholen onderling' },
+    { rotate: false, title:  'Verbinden van mensen vanuit overheden, bedrijfsleven en maatschappelijke partijen', description: 'Verbinden van mensen vanuit overheden, bedrijfsleven en maatschappelijke partijen' },
     { rotate: false, title:  'Verbinden van collega’s in school', description: 'Verbinden van docenten, teamleiders en CvB' },
-    { rotate: false, title:  'Korte lijntjes aanleggen', description: 'Zorgdragen voor aanleg en onderhoud van makkelijk toegankelijke contacten' },
-    { rotate: false, title:  'Acquireren ', description: 'Werven van vraagstukken in de regio' },
-    { rotate: false, title:  'Vragen articuleren', description: 'Realiteitsgehalte van projecten inschatten irt beoogde betrokkenen ' },
-    { rotate: false, title:  'Mentaliteitsverandering realiseren', description: 'Mentaliteitsverandering bij medewerkers binnen je onderwijsinstelling realiseren ' },
-    { rotate: false, title:  'Organiseren van activiteiten', description: 'Actieve betrokkenheid bij de organisatie (in detail) van activiteiten en de PR daarvoor. Afspraken helpen vastleggen en draaiboeken (helpen) maken' },
-    { rotate: false, title:  'Reality checks uitvoeren', description: 'Reality checks uitvoeren' },
-    { rotate: false, title:  'Aansturen van individuen', description: 'Aansturen van individuen met verschillende achtergronden en belangen' },
-    { rotate: false, title:  'Aansturen van groepen ', description: 'Aansturen van diverse groepen' },
-    { rotate: false, title:  'Stimuleren van individuen', description: 'Stimuleren van individuen met verschillende achtergronden en belangen' },
-    { rotate: false, title:  'Stimuleren van groepen', description: 'Stimuleren van groepen met verschillende achtergronden en belangen' },
-    { rotate: false, title:  'Informatie delen', description: 'Continu actief informatie delen' },
-    { rotate: false, title:  'Uitleggen', description: 'Continu goed uitleggen waarom bepaalde informatie voor iemand van belang is' },
-    { rotate: false, title:  'Verwachtingsmanagement voeren', description: 'Verwachtingsmanagement voeren tussen betrokken interne en externe partijen' },
-    { rotate: false, title:  'Benoemen van resultaat', description: 'Benoemen van positieve resultaten en slagkracht van anderen' },
-    { rotate: false, title:  'Zichtbaarheid organiseren', description: 'PR organiseren over good practices (zichtbaar maken) ' },
-    { rotate: false, title:  'Vervolgacties expliciteren', description: 'Vervolgacties continu expliciteren ' },
-    { rotate: false, title:  'Vervolgacties concretiseren', description: 'Vervolgacties (helpen) concretiseren' },
-    { rotate: false, title:  'Breed communiceren ', description: 'Helder het doel en belang van een activiteit communiceren naar alle betrokkenen' },
-    { rotate: false, title:  'Prikkelen', description: 'Prikkelen van nieuwsgierigheid' },
+    { rotate: false, title:  'Zorgdragen voor aanleg en onderhoud van makkelijk toegankelijke contacten', description: 'Zorgdragen voor aanleg en onderhoud van makkelijk toegankelijke contacten' },
+    { rotate: false, title:  'Werven van vraagstukken in de regio ', description: 'Werven van vraagstukken in de regio' },
+    { rotate: false, title:  'Realiteitsgehalte van projecten inschatten irt beoogde betrokkenen ', description: 'Realiteitsgehalte van projecten inschatten irt beoogde betrokkenen ' },
+    { rotate: false, title:  'Mentaliteitsverandering bij medewerkers binnen je onderwijsinstelling realiseren ', description: 'Mentaliteitsverandering bij medewerkers binnen je onderwijsinstelling realiseren ' },
+    { rotate: false, title:  'Actieve betrokkenheid bij de organisatie (in detail) van activiteiten en de PR daarvoor. Afspraken helpen vastleggen en draaiboeken (helpen) maken', description: 'Actieve betrokkenheid bij de organisatie (in detail) van activiteiten en de PR daarvoor. Afspraken helpen vastleggen en draaiboeken (helpen) maken' },
+    { rotate: false, title:  'Reality checks uitvoeren op programma’s van activiteiten', description: 'Reality checks uitvoeren op programma’s van activiteiten' },
+    { rotate: false, title:  'Aansturen van individuen met verschillende achtergronden en belangen', description: 'Aansturen van individuen met verschillende achtergronden en belangen met verschillende achtergronden en belangen' },
+    { rotate: false, title:  'Aansturen van diverse groepen', description: 'Aansturen van diverse groepen' },
+    { rotate: false, title:  'Stimuleren van individuen met verschillende achtergronden en belangen', description: 'Stimuleren van individuen met verschillende achtergronden en belangen met verschillende achtergronden en belangen' },
+    { rotate: false, title:  'Stimuleren van groepen met verschillende achtergronden en belangen', description: 'Stimuleren van groepen met verschillende achtergronden en belangen met verschillende achtergronden en belangen' },
+    { rotate: false, title:  'Continu actief informatie delen ', description: 'Continu actief informatie delen' },
+    { rotate: false, title:  'Continu goed uitleggen waarom bepaalde informatie voor iemand van belang is', description: 'Continu goed Continu goed uitleggen waarom bepaalde informatie voor iemand van belang is waarom bepaalde informatie voor iemand van belang is' },
+    { rotate: false, title:  'Verwachtingsmanagement voeren tussen betrokken interne en externe partijen', description: 'Verwachtingsmanagement voeren tussen betrokken interne en externe partijen tussen betrokken interne en externe partijen' },
+    { rotate: false, title:  'Benoemen van positieve resultaten en slagkracht van anderen', description: 'Benoemen van positieve resultaten en slagkracht van anderen' },
+    { rotate: false, title:  'PR organiseren over good practices (zichtbaar maken van resultaten) ', description: 'PR organiseren over good practices (zichtbaar maken) ' },
+    { rotate: false, title:  'Vervolgacties continu expliciteren ', description: 'Vervolgacties continu expliciteren ' },
+    { rotate: false, title:  'Vervolgacties (helpen) concretiseren', description: 'Vervolgacties (helpen) concretiseren' },
+    { rotate: false, title:  'Helder het doel en belang van een activiteit te communiceren naar alle betrokkenen ', description: 'Helder het doel en belang van een activiteit communiceren naar alle betrokkenen' },
+    { rotate: false, title:  'Prikkelen van nieuwsgierigheid', description: 'Prikkelen van nieuwsgierigheid van nieuwsgierigheid' },
     { rotate: false, title:  'Aanjagen van eigenaarschap', description: 'Aanjagen van eigenaarschap' },
     { rotate: false, title:  'Aanjagen van persoonlijk leiderschap', description: 'Aanjagen van persoonlijk leiderschap' },
     { rotate: false, title:  'Begeleiden van studenten terwijl in contact met  externen', description: 'Directe betrokkenheid bij zowel de begeleiding van studenten als contacten met externen' },
     { rotate: false, title:  'Directe betrokkenheid bij zowel de begeleiding van studenten als contacten met externen', description: 'Coachen van studenten in het licht van externe relaties ' },
-    { rotate: false, title:  'Netwerk visualiseren', description: 'In beeld brengen van relevante netwerken' },
-    { rotate: false, title:  'Contacteren opdrachtgevers', description: 'Actief contacten leggen met opdrachtgevers en klanten' },
-    { rotate: false, title:  'Relatiebeheer voeren', description: 'Actief contacten onderhouden met interne en externe betrokkenen' },
-    { rotate: false, title:  'Beinvloeden onderwijsorganisatie', description: 'Invloed uitoefenen op het (flexibiliseren van) de onderwijsorganisatie' },
-    { rotate: false, title:  'Participeren in projecten', description: 'Actieve participatie in werkgroepen en projecten' },
-    { rotate: false, title:  'Organiseren van reflectie', description: 'Organiseren van reflectie op projectinhoud en –proces met betrokken partijen ' },
-    { rotate: false, title:  'Faciliteren van reflectie', description: 'Faciliteren van reflectie op projectinhoud en –proces met betrokken partijen ' }
+    { rotate: false, title:  'In beeld brengen van relevante netwerken ', description: 'In beeld brengen van relevante netwerken' },
+    { rotate: false, title:  'Actief contacten leggen met opdrachtgevers en klanten', description: 'Actief contacten leggen met opdrachtgevers en klanten' },
+    { rotate: false, title:  'Actief contacten onderhouden met interne en externe betrokkenen', description: 'Actief contacten onderhouden met interne en externe betrokkenen' },
+    { rotate: false, title:  'Invloed uitoefenen op het (flexibiliseren van) de onderwijsorganisatie', description: 'Invloed uitoefenen op het (flexibiliseren van) de onderwijsorganisatie' },
+    { rotate: false, title:  'Actieve participatie in werkgroepen en projecten', description: 'Actieve participatie in werkgroepen en projecten' },
+    { rotate: false, title:  'Organiseren van reflectie op projectinhoud en –proces met betrokken partijen ', description: 'Organiseren van reflectie op projectinhoud en –proces met betrokken partijen  op projectinhoud en –proces met betrokken partijen ' },
+    { rotate: false, title:  'Faciliteren van reflectie op projectinhoud en –proces met betrokken partijen ', description: 'Faciliteren van reflectie op projectinhoud en –proces met betrokken partijen  op projectinhoud en –proces met betrokken partijen ' }
   ]);
 
   tag2 = this.shuffleArray([
@@ -140,7 +140,7 @@ export class AppComponent implements OnInit{
     { title:  'Verbindend', description: '' },
     { title:  'Opbouwend', description: '' },
     { title:  'Onvoorwaardelijk', description: '' },
-    { title:  'Prikkelend', description: '' },
+    { title:  'Prikkelen van nieuwsgierigheidd', description: '' },
     { title:  'Nieuwsgierig ', description: '' },
     { title:  'Helder', description: '' },
     { title:  'Communicatief', description: '' },
@@ -318,7 +318,7 @@ export class AppComponent implements OnInit{
       props.pageInTop += props.heighImg;
     }
 
-    //Taakgerichte competenties
+    //Сompetenties
     props.pageInTop += 10;
     props.pageInLeft = 5;
     if(props.pageInTop > 225){
@@ -326,7 +326,7 @@ export class AppComponent implements OnInit{
       props.pageInLeft = 5;
       props.pageInTop = 10;
     }
-    doc.text('Taakgerichte competenties', props.pageInLeft, props.pageInTop, { align: 'left'});
+    doc.text('Сompetenties', props.pageInLeft, props.pageInTop, { align: 'left'});
     props.pageInTop += 5;
     images['tag2'].forEach(el => {
       if(props.pageInTop > 240){
@@ -347,7 +347,7 @@ export class AppComponent implements OnInit{
       props.pageInTop += props.heighImg;
     }
 
-    //Taakgerichte competenties
+    //Сompetenties
     props.pageInTop += 10;
     props.pageInLeft = 5;
     if(props.pageInTop > 225){
@@ -355,7 +355,7 @@ export class AppComponent implements OnInit{
       props.pageInLeft = 5;
       props.pageInTop = 10;
     }
-    doc.text('Persoonskenmerken', props.pageInLeft, props.pageInTop, { align: 'left'});
+    doc.text('Persoonlijke Kwaliteiten', props.pageInLeft, props.pageInTop, { align: 'left'});
     props.pageInTop += 5;
     images['tag3'].forEach(el => {
       if(props.pageInTop > 240){
@@ -409,7 +409,7 @@ export class AppComponent implements OnInit{
     document.querySelectorAll('#competenties app-card').forEach(el => {
       promiseArr['tag2'].push(html2canvas(el, imageOption));
     });
-    document.querySelectorAll('#persoonskenmerken app-card').forEach(el => {
+    document.querySelectorAll('#Persoonlijke Kwaliteiten app-card').forEach(el => {
       promiseArr['tag3'].push(html2canvas(el, imageOption));
     });
 
